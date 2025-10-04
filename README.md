@@ -1,6 +1,6 @@
 # LinkSnorter
 
-A modern, responsive frontend for the FastAPI URL shortener backend service.
+A fast responsive site for the FastAPI URL shortener backend service.
 
 ## Features
 
@@ -124,3 +124,4 @@ The CSS is organized into logical sections:
 
 
 <p align= "center"><i>Axy🤘🏼</i></p>
+
