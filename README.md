@@ -1,4 +1,4 @@
-# LinkSnorter - URL Shortener Frontend
+# LinkSnorter
 
 A modern, responsive frontend for the FastAPI URL shortener backend service.
 
@@ -20,27 +20,25 @@ A modern, responsive frontend for the FastAPI URL shortener backend service.
 
 ### Setup
 
+1. Initialize your virtual environment and download all necessary libraries:
+   ```bash
+   cd LinkSnorter Path
+   python -m venv venv
+   ```
+
+   For Windows (just ask AI chat about setup venv)
+   ```bash
+   venv\Scripts\Activate
+   pip install -r requirements.txt
+   ```
+
 1. Make sure your FastAPI backend is running:
    ```bash
-   cd your-backend-directory
    uvicorn app.main:app --reload
    ```
 
 2. Open the frontend:
    - Simply open `index.html` in your web browser
-   - Or serve it using a local server (recommended):
-     ```bash
-     # Using Python
-     python -m http.server 8001
-     
-     # Using Node.js
-     npx serve .
-     
-     # Using PHP
-     php -S localhost:8001
-     ```
-
-3. Navigate to `http://localhost:8001` (or wherever you're serving the files)
 
 ## Usage
 
@@ -59,10 +57,22 @@ A modern, responsive frontend for the FastAPI URL shortener backend service.
 ## File Structure
 
 ```
-├── index.html          # Main HTML structure
-├── styles.css          # CSS styling and responsive design
-├── script.js           # JavaScript for API integration
-└── README.md           # This file
+├── app
+   ├── init.py
+   ├── config.py
+   ├── crud.py
+   ├── database.py
+   ├── keygen.py
+   ├── main.py
+   ├── models.py
+   ├── schemas.py
+├── template
+   ├── index.html
+   ├── style.css
+   ├── script.js
+├── .env
+├── requirements.txt
+└── shortner.db
 ```
 
 ## API Integration
@@ -73,13 +83,6 @@ The frontend integrates with your FastAPI backend endpoints:
 - `GET /admin/{secret_key}` - Get URL information
 - `DELETE /admin/{secret_key}` - Delete URL
 - `GET /{url_key}` - Redirect to original URL
-
-## Browser Support
-
-- Chrome 60+
-- Firefox 55+
-- Safari 12+
-- Edge 79+
 
 ## Customization
 
@@ -114,28 +117,10 @@ The CSS is organized into logical sections:
 ✅ Toast notifications  
 ✅ Modern UI/UX  
 
-## Troubleshooting
-
-### CORS Issues
-If you encounter CORS issues, make sure your FastAPI backend has CORS middleware enabled:
-
-```python
-from fastapi.middleware.cors import CORSMiddleware
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Configure appropriately for production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-```
 
 ### API Connection Issues
 - Ensure your FastAPI backend is running
 - Check that the API_BASE_URL in script.js matches your backend URL
-- Verify CORS settings in your backend
 
-## License
 
-This project is open source and available under the MIT License.
+<p align= "center"><i>Axy🤘🏼</i></p>
