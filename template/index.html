@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkSnorter - URL Shortener</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-link"></i>
+                    <h1>LinkSnorter</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#url-form" class="nav-link">Shorten Your URL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#management" class="nav-link">Manage Your URLs</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="header">
+            <p class="tagline">Shorten your links, track your clicks</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- URL Shortening Form -->
+            <section id="url-form" class="url-form-section">
+                <div class="form-container">
+                    <h2>Shorten Your URL</h2>
+                    <form id="urlForm" class="url-form">
+                        <div class="input-group">
+                            <input 
+                                type="url" 
+                                id="targetUrl" 
+                                placeholder="Enter your long URL here..." 
+                                required
+                            >
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-compress-alt"></i>
+                                Shorten URL
+                            </button>
+                        </div>
+                    </form>
+                    <div id="resultContainer" class="result-container hidden">
+                        <div class="result-card">
+                            <div class="result-header">
+                                <h3>Your Shortened URL</h3>
+                                <button id="copyBtn" class="btn btn-secondary">
+                                    <i class="fas fa-copy"></i>
+                                    Copy
+                                </button>
+                            </div>
+                            <div class="url-display">
+                                <input type="text" id="shortUrl" readonly>
+                            </div>
+                            <div class="admin-info">
+                                <p><strong>Admin URL:</strong> <span id="adminUrl"></span></p>
+                                <p><em>Use this link to manage your shortened URL</em></p>
+                                <button id="visitShortenedUrlBtn" class="btn btn-secondary mt-1">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Visit Shortened Site
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- URL Management Section -->
+            <section id="management" class="management-section">
+                <div class="management-container">
+                    <h2>Manage Your URLs</h2>
+                    <div class="admin-form">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="adminKey" 
+                                placeholder="Enter your admin key to manage URLs..." 
+                            >
+                            <button id="loadUrlBtn" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                                Load URL
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="urlManagement" class="url-management hidden">
+                        <div class="url-details">
+                            <div class="url-info">
+                                <h3>URL Details</h3>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Original URL:</label>
+                                        <span id="originalUrl"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Shortened URL:</label>
+                                        <span id="shortenedUrl"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Total Clicks:</label>
+                                        <span id="clickCount" class="click-count">0</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Status:</label>
+                                        <span id="urlStatus" class="status active">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="url-actions">
+                                <button id="copyShortUrlBtn" class="btn btn-secondary">
+                                    <i class="fas fa-copy"></i>
+                                    Copy Short URL
+                                </button>
+                                <button id="visitUrlBtn" class="btn btn-secondary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Visit URL
+                                </button>
+                                <button id="deleteUrlBtn" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                    Delete URL
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 LinkSnorter. Built by Axy.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -7,6 +7,8 @@ from sqlalchemy.orm import Session
 from starlette.datastructures import URL
 
 
+from fastapi.middleware.cors import CORSMiddleware # Added for CORS
+
 from . import crud, models, schemas
 from .database import SessionLocal, engine
 from .config import get_settings
@@ -14,6 +16,15 @@ from .config import get_settings
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine) # this creates the database tables
+
+# CORS Middleware Configuration
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 # this function will be used to get a database session for each request by utilizing FastAPI's dependency injection system
 def get_db():
